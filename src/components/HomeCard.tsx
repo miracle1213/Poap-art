@@ -1,8 +1,8 @@
 import React from 'react'
 import { makeStyles } from '@material-ui/core/styles'
-import SampleImg from '../assets/images/sampleImg.jpg'
 import Avatar from '../assets/images/motor.jpg'
 import { Typography, Card } from '@material-ui/core'
+import { useHistory } from 'react-router-dom'
 
 const useStyles = makeStyles((theme) => ({
   root: {
@@ -74,9 +74,13 @@ const useStyles = makeStyles((theme) => ({
 
 function HomeCard() {
   const classes = useStyles()
+  const history = useHistory()
+  const handleDetail = () => {
+    history.push('/detail')
+  }
 
   return (
-    <Card className={classes.root}>
+    <Card className={classes.root} onClick={handleDetail}>
       <div className={classes.imgDiv}>
         <img src={Avatar} alt="sample" className={classes.img} />
       </div>
